@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "items_displayed:angler_pottery_sherd",
+    "items_displayed:archer_pottery_sherd",
+    "items_displayed:arms_up_pottery_sherd",
+    "items_displayed:blade_pottery_sherd",
+    "items_displayed:brewer_pottery_sherd",
+    "items_displayed:burn_pottery_sherd",
+    "items_displayed:danger_pottery_sherd",
+    "items_displayed:explorer_pottery_sherd",
+    "items_displayed:friend_pottery_sherd",
+    "items_displayed:heart_pottery_sherd",
+    "items_displayed:heartbreak_pottery_sherd",
+    "items_displayed:howl_pottery_sherd",
+    "items_displayed:miner_pottery_sherd",
+    "items_displayed:mourner_pottery_sherd",
+    "items_displayed:plenty_pottery_sherd",
+    "items_displayed:prize_pottery_sherd",
+    "items_displayed:sheaf_pottery_sherd",
+    "items_displayed:shelter_pottery_sherd",
+    "items_displayed:skull_pottery_sherd",
+    "items_displayed:snort_pottery_sherd",
+    "items_displayed:dinosaur_pottery_sherd",
+    "items_displayed:footprint_pottery_sherd",
+    "items_displayed:guardian_pottery_sherd",
+    "items_displayed:hero_pottery_sherd"
+  ]
+}

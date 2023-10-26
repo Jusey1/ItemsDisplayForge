@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "items_displayed:netherite_upgrade",
+    "items_displayed:gothic_upgrade",
+    "items_displayed:coast_armor_trim",
+    "items_displayed:dune_armor_trim",
+    "items_displayed:eye_armor_trim",
+    "items_displayed:host_armor_trim",
+    "items_displayed:raiser_armor_trim",
+    "items_displayed:rib_armor_trim",
+    "items_displayed:sentry_armor_trim",
+    "items_displayed:shaper_armor_trim",
+    "items_displayed:silence_armor_trim",
+    "items_displayed:snout_armor_trim",
+    "items_displayed:spire_armor_trim",
+    "items_displayed:tide_armor_trim",
+    "items_displayed:vex_armor_trim",
+    "items_displayed:ward_armor_trim",
+    "items_displayed:wayfinder_armor_trim",
+    "items_displayed:wild_armor_trim",
+    "items_displayed:kobold_armor_trim",
+    "items_displayed:necro_armor_trim"
+  ]
+}
