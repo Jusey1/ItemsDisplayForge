@@ -93,7 +93,7 @@ public class ItemDisplay extends LivingEntity {
 		BlockPos pos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
 		if (hand == InteractionHand.MAIN_HAND) {
 			if (current.isEmpty()) {
-				if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:displayable"))) && !stack.is(ItemTags.create(new ResourceLocation("forge:ingots")))) {
+				if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:displayable"))) && !stack.is(ItemTags.create(new ResourceLocation("items_displayed:stackable")))) {
 					Block target = BlockAssociations.getBlockFor(stack.getItem());
 					ItemStack copy = stack.copy();
 					copy.setCount(1);
