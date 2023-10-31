@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "items_displayed:zinc_ingot",
+                  "block": "items_displayed:scarlet_ingot",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "stacks": "2"
@@ -25,7 +25,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "items_displayed:zinc_ingot",
+                  "block": "items_displayed:scarlet_ingot",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "stacks": "3"
@@ -36,7 +36,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "create:zinc_ingot"
+          "name": "alexscaves:scarlet_neodymium_ingot"
         }
       ]
     }

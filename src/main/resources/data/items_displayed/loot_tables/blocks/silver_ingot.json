@@ -14,7 +14,7 @@
                   "block": "items_displayed:silver_ingot",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "ingots": "2"
+                    "stacks": "2"
                   }
                 }
               ],
@@ -28,7 +28,7 @@
                   "block": "items_displayed:silver_ingot",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "ingots": "3"
+                    "stacks": "3"
                   }
                 }
               ],

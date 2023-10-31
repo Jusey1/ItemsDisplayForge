@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_ingot",
+    "minecraft:gold_ingot",
+    "minecraft:copper_ingot",
+    "minecraft:netherite_ingot",
+    {
+      "id": "alexscaves:azure_neodymium_ingot",
+      "required": false
+    },
+    {
+      "id": "alexscaves:scarlet_neodymium_ingot",
+      "required": false
+    },
+    {
+      "id": "create:zinc_ingot",
+      "required": false
+    },
+    {
+      "id": "create:brass_ingot",
+      "required": false
+    },
+    {
+      "id": "galosphere:silver_ingot",
+      "required": false
+    }
+  ]
+}
