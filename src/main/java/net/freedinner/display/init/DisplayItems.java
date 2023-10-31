@@ -66,6 +66,8 @@ public class DisplayItems {
 	public static final RegistryObject<Item> COPPER_INGOT = block(DisplayBlocks.COPPER_INGOT);
 	public static final RegistryObject<Item> GOLD_INGOT = block(DisplayBlocks.GOLD_INGOT);
 	public static final RegistryObject<Item> NETHERITE_INGOT = block(DisplayBlocks.NETHERITE_INGOT);
+	public static final RegistryObject<Item> AZURE_INGOT = block(DisplayBlocks.AZURE_INGOT);
+	public static final RegistryObject<Item> SCARLET_INGOT = block(DisplayBlocks.SCARLET_INGOT);
 	public static final RegistryObject<Item> BRASS_INGOT = block(DisplayBlocks.BRASS_INGOT);
 	public static final RegistryObject<Item> ZINC_INGOT = block(DisplayBlocks.ZINC_INGOT);
 	public static final RegistryObject<Item> SILVER_INGOT = block(DisplayBlocks.SILVER_INGOT);

@@ -1,7 +1,9 @@
 package net.freedinner.display;
 
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -17,5 +19,6 @@ public class DisplayMod {
 		DisplayBlocks.REGISTRY.register(bus);
 		DisplayItems.REGISTRY.register(bus);
 		DisplayMobs.REGISTRY.register(bus);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, DisplayConfig.CONFIG, "display-client.toml");
 	}
 }

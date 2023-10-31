@@ -1,7 +1,5 @@
 package net.freedinner.display.block;
 
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
@@ -18,23 +16,20 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
+import net.freedinner.display.util.BlockAssociations;
+
 public abstract class AbstractItemBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-	private ItemStack drop = new ItemStack(Items.AIR);
-	
+
 	public AbstractItemBlock(BlockBehaviour.Properties props) {
 		super(props);
 		this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
 	}
-
-	@Override
-	public abstract VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context);
 
 	@Override
 	public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
@@ -85,10 +80,6 @@ public abstract class AbstractItemBlock extends HorizontalDirectionalBlock imple
 	}
 
 	public ItemStack getStackFor() {
-		return this.drop;
-	}
-
-	public void setStackFor(ItemStack stack) {
-		this.drop = stack;
+		return new ItemStack(BlockAssociations.getItemFor(this));
 	}
 }

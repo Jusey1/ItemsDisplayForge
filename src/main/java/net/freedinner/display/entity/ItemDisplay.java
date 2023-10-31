@@ -94,7 +94,7 @@ public class ItemDisplay extends LivingEntity {
 		if (hand == InteractionHand.MAIN_HAND) {
 			if (current.isEmpty()) {
 				if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:displayable"))) && !stack.is(ItemTags.create(new ResourceLocation("forge:ingots")))) {
-					Block target = BlockAssociations.getBlockFor(stack);
+					Block target = BlockAssociations.getBlockFor(stack.getItem());
 					ItemStack copy = stack.copy();
 					copy.setCount(1);
 					this.setItemInHand(InteractionHand.MAIN_HAND, copy);
@@ -108,7 +108,7 @@ public class ItemDisplay extends LivingEntity {
 					return InteractionResult.SUCCESS;
 				}
 			} else if (stack.isEmpty()) {
-				Block target = BlockAssociations.getBlockFor(current);
+				Block target = BlockAssociations.getBlockFor(current.getItem());
 				player.addItem(current);
 				current.shrink(1);
 				this.getOffhandItem().shrink(1);

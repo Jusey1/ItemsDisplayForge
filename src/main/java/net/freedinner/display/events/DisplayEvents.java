@@ -36,7 +36,7 @@ public class DisplayEvents {
 				&& world.getBlockState(pos.above()).canBeReplaced(new BlockPlaceContext(player, event.getHand(), stack, event.getHitVec()))) {
 			player.swing(event.getHand());
 			if (world instanceof ServerLevel lvl) {
-				Block target = BlockAssociations.getBlockFor(stack);
+				Block target = BlockAssociations.getBlockFor(stack.getItem());
 				target.asItem().useOn(new UseOnContext(player, event.getHand(), event.getHitVec()));
 				lvl.playSound(null, pos.above(), target.defaultBlockState().getSoundType(world, pos.above(), player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
 			}
@@ -51,7 +51,6 @@ public class DisplayEvents {
 				List<ItemStack> drops = target.getDrops(target.defaultBlockState(), lvl, BlockPos.containing(0, 256, 0), null);
 				if (!drops.isEmpty()) {
 					BlockAssociations.addToMap(drops.get(0).getItem(), target);
-					target.setStackFor(drops.get(0));
 				}
 			}
 		}

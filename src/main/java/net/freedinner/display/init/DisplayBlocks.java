@@ -66,6 +66,8 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> COPPER_INGOT = REGISTRY.register("copper_ingot", () -> new IngotBlock(getProps(SoundType.COPPER)));
 	public static final RegistryObject<Block> GOLD_INGOT = REGISTRY.register("gold_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> NETHERITE_INGOT = REGISTRY.register("netherite_ingot", () -> new IngotBlock(getProps(SoundType.NETHERITE_BLOCK)));
+	public static final RegistryObject<Block> AZURE_INGOT = REGISTRY.register("azure_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
+	public static final RegistryObject<Block> SCARLET_INGOT = REGISTRY.register("scarlet_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> BRASS_INGOT = REGISTRY.register("brass_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> ZINC_INGOT = REGISTRY.register("zinc_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> SILVER_INGOT = REGISTRY.register("silver_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
