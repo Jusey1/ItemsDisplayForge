@@ -1,6 +1,6 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-license="Academic Free License v3.0"
+license="MIT License"
 
 [[mods]]
 modId="display"
@@ -8,6 +8,7 @@ version="1.2.0"
 displayName="Items Displayed"
 credits="Jusey1, Freedinner"
 displayURL="https://legacy.curseforge.com/minecraft/mc-mods/items-displayed"
+logoFile="logo.png"
 authors="Jusey1, Freedinner"
 description="Allows the display of specific items."
 
