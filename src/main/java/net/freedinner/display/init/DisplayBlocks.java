@@ -72,6 +72,10 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> ZINC_INGOT = REGISTRY.register("zinc_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> SILVER_INGOT = REGISTRY.register("silver_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 
+	public static final RegistryObject<Block> DIAMOND = REGISTRY.register("diamond", () -> new GemBlock(getProps(SoundType.METAL)));
+	public static final RegistryObject<Block> EMERALD = REGISTRY.register("emerald", () -> new GemBlock(getProps(SoundType.METAL)));
+	public static final RegistryObject<Block> LAPIS = REGISTRY.register("lapis_lazuli", () -> new GemBlock(getProps(SoundType.METAL)));
+
 	private static BlockBehaviour.Properties getProps(SoundType sound) {
 		return getDefault().mapColor(MapColor.NONE).sound(sound);
 	}

@@ -72,6 +72,10 @@ public class DisplayItems {
 	public static final RegistryObject<Item> ZINC_INGOT = block(DisplayBlocks.ZINC_INGOT);
 	public static final RegistryObject<Item> SILVER_INGOT = block(DisplayBlocks.SILVER_INGOT);
 
+	public static final RegistryObject<Item> DIAMOND = block(DisplayBlocks.DIAMOND);
+	public static final RegistryObject<Item> EMERALD = block(DisplayBlocks.EMERALD);
+	public static final RegistryObject<Item> LAPIS = block(DisplayBlocks.LAPIS);
+
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
 	}

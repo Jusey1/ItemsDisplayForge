@@ -59,4 +59,4 @@ public class DisplayEvents {
 	private static AbstractItemBlock[] findBlocks(Class<?> targets) {
 		return ForgeRegistries.BLOCKS.getValues().stream().filter(targets::isInstance).toArray(AbstractItemBlock[]::new);
 	}
-}
+}
