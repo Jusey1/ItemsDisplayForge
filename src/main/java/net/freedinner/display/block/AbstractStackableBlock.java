@@ -1,7 +1,5 @@
 package net.freedinner.display.block;
 
-import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -9,18 +7,16 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
+import net.freedinner.display.init.DisplayTags;
 import net.freedinner.display.init.DisplayProperties;
 
 public abstract class AbstractStackableBlock extends AbstractItemBlock {
@@ -35,7 +31,7 @@ public abstract class AbstractStackableBlock extends AbstractItemBlock {
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		ItemStack stack = player.getItemInHand(hand);
 		int i = state.getValue(STACKS);
-		if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:stackable")))) {
+		if (stack.is(DisplayTags.STACKABLE)) {
 			if (world.isClientSide() && i < getMaxStackable()) {
 				return InteractionResult.SUCCESS;
 			} else if (stack.getItem() == this.getStackFor().getItem() && i < getMaxStackable()) {

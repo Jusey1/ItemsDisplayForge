@@ -20,12 +20,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.core.particles.ParticleTypes;
@@ -34,6 +32,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.BlockPos;
 
 import net.freedinner.display.util.BlockAssociations;
+import net.freedinner.display.init.DisplayTags;
 import net.freedinner.display.init.DisplayItems;
 
 public class ItemDisplay extends LivingEntity {
@@ -93,7 +92,7 @@ public class ItemDisplay extends LivingEntity {
 		BlockPos pos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
 		if (hand == InteractionHand.MAIN_HAND) {
 			if (current.isEmpty()) {
-				if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:displayable"))) && !stack.is(ItemTags.create(new ResourceLocation("items_displayed:stackable")))) {
+				if (stack.is(DisplayTags.DISPLAYABLE) && !stack.is(DisplayTags.STACKABLE)) {
 					Block target = BlockAssociations.getBlockFor(stack.getItem());
 					ItemStack copy = stack.copy();
 					copy.setCount(1);
@@ -230,4 +229,4 @@ public class ItemDisplay extends LivingEntity {
 					(double) (this.getBbWidth() / 4.0F), 0.05D);
 		}
 	}
-}
+}

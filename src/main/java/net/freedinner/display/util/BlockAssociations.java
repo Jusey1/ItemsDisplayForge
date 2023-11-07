@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class BlockAssociations {
-	private static Map<Item, Block> blockMap = new HashMap<>();
-	private static Map<Block, Item> itemMap = new HashMap<>();
+	public static Map<Item, Block> blockMap = new HashMap<>();
+	public static Map<Block, Item> itemMap = new HashMap<>();
 
 	public static Block getBlockFor(Item i) {
 		return blockMap.getOrDefault(i, Blocks.AIR);

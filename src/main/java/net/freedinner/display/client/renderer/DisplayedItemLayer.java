@@ -4,14 +4,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.HumanoidArm;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.model.ArmedModel;
 
+import net.freedinner.display.init.DisplayTags;
 import net.freedinner.display.entity.ItemDisplay;
 import net.freedinner.display.client.model.ItemDisplayModel;
 
@@ -40,9 +39,9 @@ public class DisplayedItemLayer extends RenderLayer<ItemDisplay, ItemDisplayMode
 		((ArmedModel) this.getParentModel()).translateToHand(HumanoidArm.RIGHT, pose);
 		pose.mulPose(Axis.XP.rotationDegrees(-120.0f));
 		pose.mulPose(Axis.YP.rotationDegrees(180.0f));
-		if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:sherds")))) {
+		if (stack.is(DisplayTags.SHERDS)) {
 			pose.translate(0f, -0.11f, -0.94f);
-		} else if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:smithing_templates")))) {
+		} else if (stack.is(DisplayTags.TEMPLATES)) {
 			pose.translate(0f, -0.11f, -1.01f);
 		}
 		this.item.renderItem(target, stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, pose, buffer, light);

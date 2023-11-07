@@ -12,14 +12,14 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.freedinner.display.util.BlockAssociations;
+import net.freedinner.display.init.DisplayTags;
+import net.freedinner.display.init.DisplayConfig;
 import net.freedinner.display.block.AbstractItemBlock;
 
 import java.util.List;
@@ -32,13 +32,15 @@ public class DisplayEvents {
 		ItemStack stack = event.getItemStack();
 		LevelAccessor world = event.getLevel();
 		BlockPos pos = event.getPos();
-		if (stack.is(ItemTags.create(new ResourceLocation("items_displayed:displayable"))) && event.getFace() == Direction.UP && world.getBlockState(pos).isFaceSturdy(world, pos, Direction.UP)
-				&& world.getBlockState(pos.above()).canBeReplaced(new BlockPlaceContext(player, event.getHand(), stack, event.getHitVec()))) {
-			player.swing(event.getHand());
-			if (world instanceof ServerLevel lvl) {
-				Block target = BlockAssociations.getBlockFor(stack.getItem());
-				target.asItem().useOn(new UseOnContext(player, event.getHand(), event.getHitVec()));
-				lvl.playSound(null, pos.above(), target.defaultBlockState().getSoundType(world, pos.above(), player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
+		if (!DisplayConfig.SNEAK.get() || (DisplayConfig.SNEAK.get() && player.isCrouching())) {
+			if (stack.is(DisplayTags.DISPLAYABLE) && event.getFace() == Direction.UP && world.getBlockState(pos).isFaceSturdy(world, pos, Direction.UP)
+					&& world.getBlockState(pos.above()).canBeReplaced(new BlockPlaceContext(player, event.getHand(), stack, event.getHitVec()))) {
+				player.swing(event.getHand());
+				if (world instanceof ServerLevel lvl) {
+					Block target = BlockAssociations.getBlockFor(stack.getItem());
+					target.asItem().useOn(new UseOnContext(player, event.getHand(), event.getHitVec()));
+					lvl.playSound(null, pos.above(), target.defaultBlockState().getSoundType(world, pos.above(), player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
+				}
 			}
 		}
 	}
@@ -49,7 +51,7 @@ public class DisplayEvents {
 			AbstractItemBlock[] array = findBlocks(AbstractItemBlock.class);
 			for (AbstractItemBlock target : array) {
 				List<ItemStack> drops = target.getDrops(target.defaultBlockState(), lvl, BlockPos.containing(0, 256, 0), null);
-				if (!drops.isEmpty()) {
+				if (!drops.isEmpty() && drops.get(0).is(DisplayTags.DISPLAYABLE)) {
 					BlockAssociations.addToMap(drops.get(0).getItem(), target);
 				}
 			}
