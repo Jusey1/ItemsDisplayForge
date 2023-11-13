@@ -16,7 +16,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
-import net.freedinner.display.init.DisplayTags;
 import net.freedinner.display.init.DisplayProperties;
 
 public abstract class AbstractStackableBlock extends AbstractItemBlock {
@@ -29,19 +28,16 @@ public abstract class AbstractStackableBlock extends AbstractItemBlock {
 
 	@Override
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-		ItemStack stack = player.getItemInHand(hand);
-		int i = state.getValue(STACKS);
-		if (stack.is(DisplayTags.STACKABLE)) {
-			if (world.isClientSide() && i < getMaxStackable()) {
-				return InteractionResult.SUCCESS;
-			} else if (stack.getItem() == this.getStackFor().getItem() && i < getMaxStackable()) {
+		if (world instanceof ServerLevel lvl) {
+			ItemStack stack = player.getItemInHand(hand);
+			int i = state.getValue(STACKS);
+			if (stack.getItem() == this.getStackFor().getItem() && i < getMaxStackable()) {
 				world.setBlock(pos, this.defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(WATERLOGGED, state.getValue(WATERLOGGED)).setValue(STACKS, Integer.valueOf(i + 1)), 2);
-				if (world instanceof ServerLevel lvl) {
-					lvl.playSound(null, pos, state.getSoundType(world, pos, player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
-				}
+				lvl.playSound(null, pos, state.getSoundType(world, pos, player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
 				if (!player.isCreative()) {
 					stack.shrink(1);
 				}
+				player.swing(hand, true);
 				return InteractionResult.SUCCESS;
 			}
 		}

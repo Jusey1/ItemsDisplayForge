@@ -1,6 +1,7 @@
 package net.freedinner.display.entity;
 
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
@@ -20,6 +21,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundEvent;
@@ -34,10 +36,12 @@ import net.minecraft.core.BlockPos;
 import net.freedinner.display.util.BlockAssociations;
 import net.freedinner.display.init.DisplayTags;
 import net.freedinner.display.init.DisplayItems;
+import net.freedinner.display.block.IDisplayBlock;
 
 public class ItemDisplay extends LivingEntity {
 	private final NonNullList<ItemStack> handItems = NonNullList.withSize(2, ItemStack.EMPTY);
 	private final NonNullList<ItemStack> armorItems = NonNullList.withSize(4, ItemStack.EMPTY);
+	public long lastHit;
 
 	public ItemDisplay(EntityType<ItemDisplay> type, Level world) {
 		super(type, world);
@@ -85,35 +89,33 @@ public class ItemDisplay extends LivingEntity {
 	}
 
 	@Override
-	public InteractionResult interactAt(Player player, Vec3 vec, InteractionHand hand) {
-		ItemStack stack = player.getMainHandItem();
-		ItemStack current = this.getMainHandItem();
-		LevelAccessor world = this.level();
+	public InteractionResult interactAt(Player player, Vec3 v, InteractionHand hand) {
 		BlockPos pos = BlockPos.containing(this.getX(), this.getY(), this.getZ());
-		if (hand == InteractionHand.MAIN_HAND) {
+		LevelAccessor world = this.level();
+		if (world instanceof ServerLevel lvl && hand == InteractionHand.MAIN_HAND) {
+			ItemStack stack = player.getItemInHand(hand);
+			ItemStack current = this.getMainHandItem();
 			if (current.isEmpty()) {
-				if (stack.is(DisplayTags.DISPLAYABLE) && !stack.is(DisplayTags.STACKABLE)) {
-					Block target = BlockAssociations.getBlockFor(stack.getItem());
+				Block target = BlockAssociations.getBlockFor(stack.getItem());
+				if (stack.is(DisplayTags.DISPLAYABLE) && target instanceof IDisplayBlock) {
 					ItemStack copy = stack.copy();
 					copy.setCount(1);
 					this.setItemInHand(InteractionHand.MAIN_HAND, copy);
 					this.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(target.asItem()));
-					if (world instanceof ServerLevel lvl) {
-						lvl.playSound(null, pos, target.defaultBlockState().getSoundType(world, pos, player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
-					}
+					lvl.playSound(null, pos, target.defaultBlockState().getSoundType(world, pos, player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
 					if (!player.isCreative()) {
 						stack.shrink(1);
 					}
+					player.swing(hand, true);
 					return InteractionResult.SUCCESS;
 				}
-			} else if (stack.isEmpty()) {
+			} else if (player.getMainHandItem().isEmpty()) {
 				Block target = BlockAssociations.getBlockFor(current.getItem());
 				player.addItem(current);
 				current.shrink(1);
 				this.getOffhandItem().shrink(1);
-				if (world instanceof ServerLevel lvl) {
-					lvl.playSound(null, pos, target.defaultBlockState().getSoundType(world, pos, player).getBreakSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
-				}
+				lvl.playSound(null, pos, target.defaultBlockState().getSoundType(world, pos, player).getBreakSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
+				player.swing(hand, true);
 				return InteractionResult.SUCCESS;
 			}
 		}
@@ -121,18 +123,56 @@ public class ItemDisplay extends LivingEntity {
 	}
 
 	@Override
+	public boolean hurt(DamageSource source, float f) {
+		if (!this.level().isClientSide && !this.isRemoved()) {
+			if (source.getEntity() != null) {
+				if (source.isCreativePlayer() || source.is(DamageTypeTags.BYPASSES_INVULNERABILITY) || source.is(DamageTypeTags.IS_EXPLOSION)) {
+					this.die(source);
+				} else {
+					long i = this.level().getGameTime();
+					if (i - this.lastHit > 5L) {
+						this.level().broadcastEntityEvent(this, (byte) 32);
+						this.gameEvent(GameEvent.ENTITY_DAMAGE, source.getEntity());
+						this.lastHit = i;
+					} else {
+						this.die(source);
+					}
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
 	public void die(DamageSource source) {
 		super.die(source);
+		boolean flag = (source.getEntity() instanceof Player player && player.isCreative());
+		this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARMOR_STAND_BREAK, this.getSoundSource(), 1.0F, 1.0F);
 		this.showBreakingParticles();
-		ItemEntity target = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack(DisplayItems.DISPLAY.get()));
-		target.setPickUpDelay(10);
-		this.level().addFreshEntity(target);
-		if (!this.getMainHandItem().isEmpty()) {
-			ItemEntity drop = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), this.getMainHandItem());
-			drop.setPickUpDelay(10);
-			this.level().addFreshEntity(drop);
+		if (!flag) {
+			ItemEntity target = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack(DisplayItems.DISPLAY.get()));
+			target.setPickUpDelay(10);
+			this.level().addFreshEntity(target);
+			if (!this.getMainHandItem().isEmpty()) {
+				ItemEntity drop = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), this.getMainHandItem());
+				drop.setPickUpDelay(10);
+				this.level().addFreshEntity(drop);
+			}
 		}
 		this.discard();
+	}
+
+	@Override
+	public void handleEntityEvent(byte b) {
+		if (b == 32) {
+			if (this.level().isClientSide) {
+				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ARMOR_STAND_HIT, this.getSoundSource(), 0.3F, 1.0F, false);
+				this.lastHit = this.level().getGameTime();
+			}
+		} else {
+			super.handleEntityEvent(b);
+		}
 	}
 
 	@Override

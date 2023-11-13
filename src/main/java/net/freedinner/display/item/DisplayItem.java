@@ -4,8 +4,10 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.entity.player.Player;
@@ -17,17 +19,31 @@ import net.minecraft.util.Mth;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import net.minecraft.ChatFormatting;
 
 import net.freedinner.display.init.DisplayMobs;
+import net.freedinner.display.init.DisplayConfig;
 import net.freedinner.display.entity.ItemDisplay;
 
 import java.util.function.Consumer;
+import java.util.List;
 
 public class DisplayItem extends Item {
 	public DisplayItem(Item.Properties props) {
 		super(props);
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, Level world, List<Component> list, TooltipFlag flag) {
+		super.appendHoverText(stack, world, list, flag);
+		if (DisplayConfig.DISPLAY.get()) {
+			list.add(Component.translatable("item.items_displayed.tooltip.item_display_0").withStyle(ChatFormatting.GRAY));
+			list.add(Component.translatable("item.items_displayed.tooltip.item_display_1").withStyle(ChatFormatting.BLUE));
+			list.add(Component.translatable("item.items_displayed.tooltip.item_display_2").withStyle(ChatFormatting.BLUE));
+		}
 	}
 
 	@Override
@@ -39,26 +55,27 @@ public class DisplayItem extends Item {
 			BlockPlaceContext place = new BlockPlaceContext(context);
 			BlockPos pos = place.getClickedPos();
 			ItemStack stack = context.getItemInHand();
-			Vec3 veccy = Vec3.atBottomCenterOf(pos);
-			AABB nums = DisplayMobs.DISPLAY.get().getDimensions().makeBoundingBox(veccy.x(), veccy.y(), veccy.z());
+			Vec3 v = Vec3.atBottomCenterOf(pos);
+			AABB nums = DisplayMobs.DISPLAY.get().getDimensions().makeBoundingBox(v.x(), v.y(), v.z());
 			if (world.noCollision((Entity) null, nums) && world.getEntities((Entity) null, nums).isEmpty()) {
 				if (world instanceof ServerLevel server) {
 					Consumer<ItemDisplay> consumer = EntityType.createDefaultStackConfig(server, stack, context.getPlayer());
-					ItemDisplay angel = DisplayMobs.DISPLAY.get().create(server, stack.getTag(), consumer, pos, MobSpawnType.SPAWN_EGG, true, true);
-					if (angel == null) {
+					ItemDisplay target = DisplayMobs.DISPLAY.get().create(server, stack.getTag(), consumer, pos, MobSpawnType.SPAWN_EGG, true, true);
+					if (target == null) {
 						return InteractionResult.FAIL;
 					}
-					angel.moveTo(angel.getX(), angel.getY(), angel.getZ());
-					float rot = (float) Mth.floor((Mth.wrapDegrees(context.getRotation() - 180.0F) + 22.5F) / 45.0F) * 45.0F;
-					angel.setYRot(rot);
-					angel.setYBodyRot(rot);
-					angel.setYHeadRot(rot);
-					angel.yRotO = rot;
-					angel.yBodyRotO = rot;
-					angel.yHeadRotO = rot;
-					server.addFreshEntityWithPassengers(angel);
-					world.playSound((Player) null, angel.getX(), angel.getY(), angel.getZ(), SoundEvents.ARMOR_STAND_PLACE, SoundSource.BLOCKS, 0.75F, 0.8F);
-					angel.gameEvent(GameEvent.ENTITY_PLACE, context.getPlayer());
+					target.moveTo(target.getX(), target.getY(), target.getZ());
+					float r = ((float) DisplayConfig.ROTATION.get());
+					float rot = (float) Mth.floor((Mth.wrapDegrees(context.getRotation() - 180.0F) + 22.5F) / r) * r;
+					target.setYRot(rot);
+					target.setYBodyRot(rot);
+					target.setYHeadRot(rot);
+					target.yRotO = rot;
+					target.yBodyRotO = rot;
+					target.yHeadRotO = rot;
+					server.addFreshEntityWithPassengers(target);
+					world.playSound((Player) null, target.getX(), target.getY(), target.getZ(), SoundEvents.ARMOR_STAND_PLACE, SoundSource.BLOCKS, 0.75F, 0.8F);
+					target.gameEvent(GameEvent.ENTITY_PLACE, context.getPlayer());
 				}
 				stack.shrink(1);
 				return InteractionResult.sidedSuccess(world.isClientSide);
@@ -66,5 +83,10 @@ public class DisplayItem extends Item {
 				return InteractionResult.FAIL;
 			}
 		}
+	}
+
+	@Override
+	public int getBurnTime(ItemStack stack, RecipeType type) {
+		return 250;
 	}
 }

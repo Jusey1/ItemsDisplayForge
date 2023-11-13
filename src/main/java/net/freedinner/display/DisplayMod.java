@@ -19,6 +19,7 @@ public class DisplayMod {
 		DisplayBlocks.REGISTRY.register(bus);
 		DisplayItems.REGISTRY.register(bus);
 		DisplayMobs.REGISTRY.register(bus);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DisplayConfig.CONFIG, "display-common.toml");
+		DisplayTabs.REGISTRY.register(bus);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DisplayConfig.CONFIG, "items-displayed-common.toml");
 	}
 }

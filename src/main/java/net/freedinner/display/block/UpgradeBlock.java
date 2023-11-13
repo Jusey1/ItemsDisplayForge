@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.core.BlockPos;
 
-public class UpgradeBlock extends AbstractItemBlock {
+public class UpgradeBlock extends AbstractItemBlock implements IDisplayBlock {
 	public UpgradeBlock(BlockBehaviour.Properties props) {
 		super(props);
 	}

@@ -3,18 +3,18 @@ package net.freedinner.display.events;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.freedinner.display.util.BlockAssociations;
@@ -33,13 +33,14 @@ public class DisplayEvents {
 		LevelAccessor world = event.getLevel();
 		BlockPos pos = event.getPos();
 		if (!DisplayConfig.SNEAK.get() || (DisplayConfig.SNEAK.get() && player.isCrouching())) {
-			if (stack.is(DisplayTags.DISPLAYABLE) && event.getFace() == Direction.UP && world.getBlockState(pos).isFaceSturdy(world, pos, Direction.UP)
-					&& world.getBlockState(pos.above()).canBeReplaced(new BlockPlaceContext(player, event.getHand(), stack, event.getHitVec()))) {
-				player.swing(event.getHand());
+			if (stack.is(DisplayTags.DISPLAYABLE)) {
+				event.setUseBlock(Result.DENY);
 				if (world instanceof ServerLevel lvl) {
 					Block target = BlockAssociations.getBlockFor(stack.getItem());
-					target.asItem().useOn(new UseOnContext(player, event.getHand(), event.getHitVec()));
-					lvl.playSound(null, pos.above(), target.defaultBlockState().getSoundType(world, pos.above(), player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
+					if (target.asItem().useOn(new UseOnContext(player, event.getHand(), event.getHitVec())) != InteractionResult.FAIL) {
+						lvl.playSound(null, pos.above(), target.defaultBlockState().getSoundType(world, pos.above(), player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
+						player.swing(event.getHand(), true);
+					}
 				}
 			}
 		}

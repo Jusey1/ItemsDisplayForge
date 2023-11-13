@@ -22,8 +22,8 @@ public class GemBlock extends AbstractStackableBlock {
 				default -> box(1, 0, 1, 15, 2, 15);
 			};
 			case 2 -> box(2, 0, 2, 14, 2, 14);
-			case 3 -> box(2, 0, 2, 14, 2, 14);
-			case 4 -> box(2, 0, 2, 14, 4, 14);
+			case 3 -> box(1, 0, 1, 15, 2, 15);
+			case 4 -> box(1, 0, 1, 15, 4, 15);
 			default -> box(1, 0, 1, 15, 4, 15);
 		};
 	}
