@@ -10,7 +10,7 @@ Let me introduce you to Items Displayed! Designed for both daring adventurers an
 ## Core features
 * **Placeable items:** Say goodbye to item frames. With Items Displayed, you'll be able to showcase your treasures in your house as stunning 3D models! Currently, the mod adds models for all sherds, smithing templates, ingots, etc. Want more items? Stay tuned for next updates :)
 * **Simple mechanics:** My goal is to enhance your gameplay, not complicate it. You don't need to craft or tweak anything: to place an item, just right-click while sneaking with the item in your hand. Turning your house into a piece of art has never been easier!
-* **Item Display:** You may feel like leaving your treasures lying on the ground is a strange decision. Worry not, this mod also adds a new item called Item Display, which can be crafted using sticks. It works exactly like an Armor Stand, save for the fact that it can be rotated to any angle, not just 45 degrees. Currently, Item Display supports all sherds and smithing templates.
+* **Item Display:** You may feel like leaving your treasures lying on the ground is a strange decision. Worry not, this mod also adds a new item called Item Display, which can be crafted using sticks. It works exactly like an Armor Stand, save for the fact that you can make them rotate to any angle using config. Currently, Item Display supports all sherds and smithing templates.
 * **Vanilla style:** When making the mod, I made sure to keep the authenticity of vanilla style in place. And hey, my mom couldn't tell which models are from Minecraft, and which are mine! That must mean something, right?
 * **High compatiblity:** Don't let mod conflicts hold you back from your adventures. Items Displayed has been thoroughly tested, so unless another mod makes big changes in the way items work, there shouldn't be any issues.
 
@@ -36,4 +36,4 @@ A: For now - nope! Come back a little later, when more vanilla items are already
 
 *Minecraft constantly evolves, and so does this mod. In future updates, I plan to add more items, including Diamond, Emerald, Blaze Rod, Totem of Undying, and much more! Would you like to join me on this adventure?*
 
-## Go check it out on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/items-displayed-fabric) or [Modrinth](https://modrinth.com/mod/items-displayed)!
+## Go check it out on [CurseForge](https://www.curseforge.com/minecraft/mc-mods/items-displayed-forge) or [Modrinth](https://modrinth.com/mod/items-displayed-forge)!
