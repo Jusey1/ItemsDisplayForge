@@ -5,6 +5,9 @@
     "minecraft:gold_ingot",
     "minecraft:copper_ingot",
     "minecraft:netherite_ingot",
+    "minecraft:brick",
+    "minecraft:nether_brick",
+    "minecraft:amethyst_shard",
     "minecraft:diamond",
     "minecraft:emerald",
     "minecraft:lapis_lazuli",
@@ -91,6 +94,30 @@
     },
     {
       "id": "supernatural:gothic_template",
+      "required": false
+    },
+    {
+      "id": "supplementaries:ash_brick",
+      "required": false
+    },
+    {
+      "id": "trials:bolt_template",
+      "required": false
+    },
+    {
+      "id": "trials:flow_template",
+      "required": false
+    },
+    {
+      "id": "trials:flow_pottery_sherd",
+      "required": false
+    },
+    {
+      "id": "trials:guster_pottery_sherd",
+      "required": false
+    },
+    {
+      "id": "trials:scrape_pottery_sherd",
       "required": false
     }
   ]
