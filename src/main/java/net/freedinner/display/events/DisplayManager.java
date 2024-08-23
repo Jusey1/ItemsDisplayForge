@@ -12,8 +12,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
-
-import net.freedinner.display.util.BlockAssociations;
+import net.freedinner.display.util.BlockAssociations;
 import net.freedinner.display.init.DisplayTags;
 import net.freedinner.display.init.DisplayConfig;
 import net.freedinner.display.block.AbstractStackableBlock;
@@ -22,7 +21,7 @@ public class DisplayManager {
 	public static void placeItem(Player player, Level world, BlockHitResult rez, boolean check) {
 		InteractionHand handy = (check ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND);
 		ItemStack stack = player.getItemInHand(handy);
-		if (!DisplayConfig.SNEAK.get() || (DisplayConfig.SNEAK.get() && player.isCrouching())) {
+		if (player.isCrouching()) {
 			if (stack.is(DisplayTags.DISPLAYABLE) && world instanceof ServerLevel lvl) {
 				BlockPos pos = rez.getBlockPos();
 				BlockState state = world.getBlockState(pos);

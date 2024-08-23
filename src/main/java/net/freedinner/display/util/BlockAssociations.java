@@ -4,8 +4,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Item;
-
-import java.util.Map;
+import java.util.Map;
 import java.util.HashMap;
 
 public class BlockAssociations {

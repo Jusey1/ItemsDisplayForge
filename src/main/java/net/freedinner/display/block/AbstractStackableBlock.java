@@ -6,8 +6,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.core.Direction;
-
-import net.freedinner.display.init.DisplayProperties;
+import net.freedinner.display.init.DisplayProperties;
 
 public abstract class AbstractStackableBlock extends AbstractItemBlock {
 	public static final IntegerProperty STACKS = DisplayProperties.STACKS;
@@ -28,7 +27,7 @@ public abstract class AbstractStackableBlock extends AbstractItemBlock {
 	}
 
 	public BlockState getState(BlockState state) {
-		return this.defaultBlockState().setValue(FACING, state.getValue(FACING)).setValue(WATERLOGGED, state.getValue(WATERLOGGED)).setValue(STACKS, Integer.valueOf(state.getValue(STACKS) + 1));
+		return state.setValue(STACKS, this.getStacks(state) + 1);
 	}
 
 	public abstract int getMaxStackable();

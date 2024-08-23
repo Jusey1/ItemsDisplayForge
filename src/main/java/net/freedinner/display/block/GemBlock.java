@@ -14,7 +14,7 @@ public class GemBlock extends AbstractStackableBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-		int i = state.getValue(STACKS);
+		int i = this.getStacks(state);
 		return switch (i) {
 			case 1 -> switch (state.getValue(FACING)) {
 				case NORTH, SOUTH -> box(6, 0, 5, 10, 2, 11);

@@ -10,12 +10,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.common.MinecraftForge;
-
-import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
-
-import net.freedinner.display.init.*;
+import net.freedinner.display.init.*;
 import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.function.BiConsumer;

@@ -3,12 +3,10 @@ package net.freedinner.display.init;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.DeferredRegister;
-
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.BlockItem;
-
-import net.freedinner.display.item.DisplayItem;
+import net.freedinner.display.item.DisplayItem;
 import net.freedinner.display.DisplayMod;
 
 public class DisplayItems {
@@ -23,7 +21,9 @@ public class DisplayItems {
 	public static final RegistryObject<Item> BURN_POTTERY_SHERD = block(DisplayBlocks.BURN_POTTERY_SHERD);
 	public static final RegistryObject<Item> DANGER_POTTERY_SHERD = block(DisplayBlocks.DANGER_POTTERY_SHERD);
 	public static final RegistryObject<Item> EXPLORER_POTTERY_SHERD = block(DisplayBlocks.EXPLORER_POTTERY_SHERD);
+	public static final RegistryObject<Item> FLOW_POTTERY_SHERD = block(DisplayBlocks.FLOW_POTTERY_SHERD);
 	public static final RegistryObject<Item> FRIEND_POTTERY_SHERD = block(DisplayBlocks.FRIEND_POTTERY_SHERD);
+	public static final RegistryObject<Item> GUSTER_POTTERY_SHERD = block(DisplayBlocks.GUSTER_POTTERY_SHERD);
 	public static final RegistryObject<Item> HEART_POTTERY_SHERD = block(DisplayBlocks.HEART_POTTERY_SHERD);
 	public static final RegistryObject<Item> HEARTBREAK_POTTERY_SHERD = block(DisplayBlocks.HEARTBREAK_POTTERY_SHERD);
 	public static final RegistryObject<Item> HOWL_POTTERY_SHERD = block(DisplayBlocks.HOWL_POTTERY_SHERD);
@@ -31,6 +31,7 @@ public class DisplayItems {
 	public static final RegistryObject<Item> MOURNER_POTTERY_SHERD = block(DisplayBlocks.MOURNER_POTTERY_SHERD);
 	public static final RegistryObject<Item> PLENTY_POTTERY_SHERD = block(DisplayBlocks.PLENTY_POTTERY_SHERD);
 	public static final RegistryObject<Item> PRIZE_POTTERY_SHERD = block(DisplayBlocks.PRIZE_POTTERY_SHERD);
+	public static final RegistryObject<Item> SCRAPE_POTTERY_SHERD = block(DisplayBlocks.SCRAPE_POTTERY_SHERD);
 	public static final RegistryObject<Item> SHEAF_POTTERY_SHERD = block(DisplayBlocks.SHEAF_POTTERY_SHERD);
 	public static final RegistryObject<Item> SHELTER_POTTERY_SHERD = block(DisplayBlocks.SHELTER_POTTERY_SHERD);
 	public static final RegistryObject<Item> SKULL_POTTERY_SHERD = block(DisplayBlocks.SKULL_POTTERY_SHERD);
@@ -43,9 +44,11 @@ public class DisplayItems {
 	public static final RegistryObject<Item> NETHERITE_UPGRADE = block(DisplayBlocks.NETHERITE_UPGRADE);
 	public static final RegistryObject<Item> GOTHIC_UPGRADE = block(DisplayBlocks.GOTHIC_UPGRADE);
 	
+	public static final RegistryObject<Item> BOLT_ARMOR_TRIM = block(DisplayBlocks.BOLT_ARMOR_TRIM);
 	public static final RegistryObject<Item> COAST_ARMOR_TRIM = block(DisplayBlocks.COAST_ARMOR_TRIM);
 	public static final RegistryObject<Item> DUNE_ARMOR_TRIM = block(DisplayBlocks.DUNE_ARMOR_TRIM);
 	public static final RegistryObject<Item> EYE_ARMOR_TRIM = block(DisplayBlocks.EYE_ARMOR_TRIM);
+	public static final RegistryObject<Item> FLOW_ARMOR_TRIM = block(DisplayBlocks.FLOW_ARMOR_TRIM);
 	public static final RegistryObject<Item> HOST_ARMOR_TRIM = block(DisplayBlocks.HOST_ARMOR_TRIM);
 	public static final RegistryObject<Item> RAISER_ARMOR_TRIM = block(DisplayBlocks.RAISER_ARMOR_TRIM);
 	public static final RegistryObject<Item> RIB_ARMOR_TRIM = block(DisplayBlocks.RIB_ARMOR_TRIM);
@@ -62,6 +65,9 @@ public class DisplayItems {
 	public static final RegistryObject<Item> KOBOLD_ARMOR_TRIM = block(DisplayBlocks.KOBOLD_ARMOR_TRIM);
 	public static final RegistryObject<Item> NECRO_ARMOR_TRIM = block(DisplayBlocks.NECRO_ARMOR_TRIM);
 
+	public static final RegistryObject<Item> BRICK = block(DisplayBlocks.BRICK);
+	public static final RegistryObject<Item> NETHER_BRICK = block(DisplayBlocks.NETHER_BRICK);
+	public static final RegistryObject<Item> ASH_BRICK = block(DisplayBlocks.ASH_BRICK);
 	public static final RegistryObject<Item> IRON_INGOT = block(DisplayBlocks.IRON_INGOT);
 	public static final RegistryObject<Item> COPPER_INGOT = block(DisplayBlocks.COPPER_INGOT);
 	public static final RegistryObject<Item> GOLD_INGOT = block(DisplayBlocks.GOLD_INGOT);
@@ -72,9 +78,12 @@ public class DisplayItems {
 	public static final RegistryObject<Item> ZINC_INGOT = block(DisplayBlocks.ZINC_INGOT);
 	public static final RegistryObject<Item> SILVER_INGOT = block(DisplayBlocks.SILVER_INGOT);
 
+	public static final RegistryObject<Item> AMETHYST = block(DisplayBlocks.AMETHYST);
 	public static final RegistryObject<Item> DIAMOND = block(DisplayBlocks.DIAMOND);
 	public static final RegistryObject<Item> EMERALD = block(DisplayBlocks.EMERALD);
 	public static final RegistryObject<Item> LAPIS = block(DisplayBlocks.LAPIS);
+	public static final RegistryObject<Item> ALLURITE = block(DisplayBlocks.ALLURITE);
+	public static final RegistryObject<Item> LUMIERE = block(DisplayBlocks.LUMIERE);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
