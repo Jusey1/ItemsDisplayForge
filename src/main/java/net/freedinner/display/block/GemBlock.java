@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.core.BlockPos;
 
-public class GemBlock extends AbstractStackableBlock {
+public class GemBlock extends AbstractStackableBlock implements IPillowBlock {
 	public GemBlock(BlockBehaviour.Properties props) {
 		super(props);
 	}

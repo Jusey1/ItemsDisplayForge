@@ -2,27 +2,62 @@ package net.freedinner.display.init;
 
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
-
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
-
-import net.freedinner.display.DisplayMod;
+import net.freedinner.display.DisplayMod;
 
 public class DisplayTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DisplayMod.MODID);
 	public static final RegistryObject<CreativeModeTab> DISPLAYED = REGISTRY.register("display",
 			() -> CreativeModeTab.builder().title(Component.translatable("item.items_displayed.item_group_name")).icon(() -> new ItemStack(DisplayItems.DISPLAY.get())).displayItems((parameters, tabData) -> {
 				tabData.accept(DisplayItems.DISPLAY.get());
+				tabData.accept(DisplayItems.WHITE_PILLOW.get());
+				tabData.accept(DisplayItems.LG_PILLOW.get());
+				tabData.accept(DisplayItems.GRAY_PILLOW.get());
+				tabData.accept(DisplayItems.BLACK_PILLOW.get());
+				tabData.accept(DisplayItems.RED_PILLOW.get());
+				tabData.accept(DisplayItems.ORANGE_PILLOW.get());
+				tabData.accept(DisplayItems.YELLOW_PILLOW.get());
+				tabData.accept(DisplayItems.LIME_PILLOW.get());
+				tabData.accept(DisplayItems.GREEN_PILLOW.get());
+				tabData.accept(DisplayItems.LB_PILLOW.get());
+				tabData.accept(DisplayItems.CYAN_PILLOW.get());
+				tabData.accept(DisplayItems.BLUE_PILLOW.get());
+				tabData.accept(DisplayItems.PURPLE_PILLOW.get());
+				tabData.accept(DisplayItems.MAGE_PILLOW.get());
+				tabData.accept(DisplayItems.PINK_PILLOW.get());
+				tabData.accept(DisplayItems.BROWN_PILLOW.get());
+				tabData.accept(Items.COAL);
+				tabData.accept(Items.CHARCOAL);
 				tabData.accept(Items.EMERALD);
 				tabData.accept(Items.LAPIS_LAZULI);
 				tabData.accept(Items.DIAMOND);
+				tabData.accept(Items.AMETHYST_SHARD);
+				tabData.accept(Items.ECHO_SHARD);
 				tabData.accept(Items.IRON_INGOT);
 				tabData.accept(Items.COPPER_INGOT);
 				tabData.accept(Items.GOLD_INGOT);
 				tabData.accept(Items.NETHERITE_INGOT);
+				tabData.accept(Items.DISC_FRAGMENT_5);
+				tabData.accept(Items.MUSIC_DISC_5);
+				tabData.accept(Items.MUSIC_DISC_11);
+				tabData.accept(Items.MUSIC_DISC_13);
+				tabData.accept(Items.MUSIC_DISC_BLOCKS);
+				tabData.accept(Items.MUSIC_DISC_CAT);
+				tabData.accept(Items.MUSIC_DISC_CHIRP);
+				tabData.accept(Items.MUSIC_DISC_FAR);
+				tabData.accept(Items.MUSIC_DISC_MALL);
+				tabData.accept(Items.MUSIC_DISC_MELLOHI);
+				tabData.accept(Items.MUSIC_DISC_OTHERSIDE);
+				tabData.accept(Items.MUSIC_DISC_PIGSTEP);
+				tabData.accept(Items.MUSIC_DISC_RELIC);
+				tabData.accept(Items.MUSIC_DISC_STAL);
+				tabData.accept(Items.MUSIC_DISC_STRAD);
+				tabData.accept(Items.MUSIC_DISC_WAIT);
+				tabData.accept(Items.MUSIC_DISC_WARD);
 				tabData.accept(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
 				tabData.accept(Items.COAST_ARMOR_TRIM_SMITHING_TEMPLATE);
 				tabData.accept(Items.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE);

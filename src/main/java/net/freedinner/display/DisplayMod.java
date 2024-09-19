@@ -25,9 +25,9 @@ public class DisplayMod {
 	public DisplayMod() {
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		DisplayMobs.REGISTRY.register(bus);
 		DisplayBlocks.REGISTRY.register(bus);
 		DisplayItems.REGISTRY.register(bus);
-		DisplayMobs.REGISTRY.register(bus);
 		DisplayTabs.REGISTRY.register(bus);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DisplayConfig.CONFIG, "items-displayed-common.toml");
 	}

@@ -78,12 +78,40 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> ZINC_INGOT = REGISTRY.register("zinc_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> SILVER_INGOT = REGISTRY.register("silver_ingot", () -> new IngotBlock(getProps(SoundType.METAL)));
 
+	public static final RegistryObject<Block> FRAGMENTS = REGISTRY.register("disc_fragment_5", () -> new FragmentsBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> FUSIONS = REGISTRY.register("disc_fragment_fusion", () -> new FragmentsBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> COAL = REGISTRY.register("coal", () -> new GemBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> CHARCOAL = REGISTRY.register("charcoal", () -> new GemBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> AMETHYST = REGISTRY.register("amethyst_shard", () -> new GemBlock(getProps(SoundType.AMETHYST)));
 	public static final RegistryObject<Block> DIAMOND = REGISTRY.register("diamond", () -> new GemBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> EMERALD = REGISTRY.register("emerald", () -> new GemBlock(getProps(SoundType.METAL)));
 	public static final RegistryObject<Block> LAPIS = REGISTRY.register("lapis_lazuli", () -> new GemBlock(getProps(SoundType.METAL)));
+	public static final RegistryObject<Block> ECHO = REGISTRY.register("echo_shard", () -> new GemBlock(getProps(SoundType.AMETHYST)));
 	public static final RegistryObject<Block> ALLURITE = REGISTRY.register("allurite_shard", () -> new GemBlock(getProps(SoundType.AMETHYST)));
 	public static final RegistryObject<Block> LUMIERE = REGISTRY.register("lumiere_shard", () -> new GemBlock(getProps(SoundType.AMETHYST)));
+
+	public static final RegistryObject<Block> MUSIC_FIVE = REGISTRY.register("music_disc_5", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_ELE = REGISTRY.register("music_disc_11", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_THREE = REGISTRY.register("music_disc_13", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_BLOCKS = REGISTRY.register("music_disc_blocks", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_CAT = REGISTRY.register("music_disc_cat", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_CHIRP = REGISTRY.register("music_disc_chirp", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_CREATOR = REGISTRY.register("music_disc_creator", () -> new MusicBlock(getProps(SoundType.COPPER)));
+	public static final RegistryObject<Block> MUSIC_CREATOR_BOX = REGISTRY.register("music_disc_creator_music_box", () -> new MusicBlock(getProps(SoundType.COPPER)));
+	public static final RegistryObject<Block> MUSIC_FAR = REGISTRY.register("music_disc_far", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_MALL = REGISTRY.register("music_disc_mall", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_MELLO = REGISTRY.register("music_disc_mellohi", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_OTHERSIDE = REGISTRY.register("music_disc_otherside", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_PIG = REGISTRY.register("music_disc_pigstep", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_PRECIPICE = REGISTRY.register("music_disc_precipice", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_RELIC = REGISTRY.register("music_disc_relic", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_STAL = REGISTRY.register("music_disc_stal", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_SRAD = REGISTRY.register("music_disc_strad", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_WAIT = REGISTRY.register("music_disc_wait", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_WARD = REGISTRY.register("music_disc_ward", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_FUSION = REGISTRY.register("music_disc_fusion", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_COCO = REGISTRY.register("music_disc_coconut", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_KOBOLD = REGISTRY.register("music_disc_kobblestone", () -> new MusicBlock(getProps(SoundType.STONE)));
 
 	private static BlockBehaviour.Properties getProps(SoundType sound) {
 		return getDefault().mapColor(MapColor.NONE).sound(sound);
