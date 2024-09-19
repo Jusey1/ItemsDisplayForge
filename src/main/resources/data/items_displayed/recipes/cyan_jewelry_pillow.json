@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "display_pillows",
+  "pattern": [
+    " g ",
+    "sws"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gold_nugget"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "w": {
+      "item": "minecraft:cyan_wool"
+    }
+  },
+  "result": {
+    "item": "items_displayed:cyan_jewelry_pillow",
+    "count": 1
+  }
+}
