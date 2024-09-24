@@ -149,7 +149,7 @@ public class AbstractDisplayEntity extends LivingEntity {
 		this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ARMOR_STAND_BREAK, this.getSoundSource(), 1.0F, 1.0F);
 		this.showBreakingParticles();
 		if (!flag) {
-			ItemEntity target = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack(DisplayItems.DISPLAY.get()));
+			ItemEntity target = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), this.getPickResult());
 			target.setPickUpDelay(10);
 			this.level().addFreshEntity(target);
 			if (!this.getMainHandItem().isEmpty()) {
