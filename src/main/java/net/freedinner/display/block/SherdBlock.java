@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.core.BlockPos;
 
-public class SherdBlock extends AbstractItemBlock implements IDisplayBlock {
+public class SherdBlock extends AbstractItemBlock implements IDisplayBlock, IPillowBlock {
 	public SherdBlock(BlockBehaviour.Properties props) {
 		super(props);
 	}

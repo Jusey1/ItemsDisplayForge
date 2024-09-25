@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.core.BlockPos;
 
-public class MusicBlock extends AbstractItemBlock implements IPillowBlock {
+public class MusicBlock extends AbstractItemBlock implements IDisplayBlock, IPillowBlock {
 	public MusicBlock(BlockBehaviour.Properties props) {
 		super(props);
 	}

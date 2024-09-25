@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.model.ArmedModel;
 import net.freedinner.display.entity.ItemPillow;
 import net.freedinner.display.client.model.PillowModel;
-import net.freedinner.display.block.MusicBlock;
+import net.freedinner.display.block.GemBlock;
 import com.mojang.math.Axis;
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -37,7 +37,7 @@ public class PillowedItemLayer extends RenderLayer<ItemPillow, PillowModel<ItemP
 		((ArmedModel) this.getParentModel()).translateToHand(HumanoidArm.RIGHT, pose);
 		pose.mulPose(Axis.XP.rotationDegrees(-157.5F));
 		pose.mulPose(Axis.YP.rotationDegrees(180.0F));
-		pose.translate(0.0F, (block.getBlock() instanceof MusicBlock ? -0.596F : -0.602F), -0.51F);
+		pose.translate(0.0F, (block.getBlock() instanceof GemBlock ? -0.602F : -0.596F), -0.51F);
 		this.item.renderItem(target, stack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, pose, buffer, light);
 		pose.popPose();
 	}

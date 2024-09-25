@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.core.BlockPos;
 
-public class ArmorTrimBlock extends AbstractItemBlock implements IDisplayBlock {
+public class ArmorTrimBlock extends AbstractItemBlock implements IDisplayBlock, IPillowBlock {
 	public ArmorTrimBlock(BlockBehaviour.Properties props) {
 		super(props);
 	}
