@@ -40,9 +40,13 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> FOOTPRINT_POTTERY_SHERD = REGISTRY.register("footprint_pottery_sherd", () -> new SherdBlock(getProps(SoundType.DECORATED_POT)));
 	public static final RegistryObject<Block> GUARDIAN_POTTERY_SHERD = REGISTRY.register("guardian_pottery_sherd", () -> new SherdBlock(getProps(SoundType.DECORATED_POT)));
 	public static final RegistryObject<Block> HERO_POTTERY_SHERD = REGISTRY.register("hero_pottery_sherd", () -> new SherdBlock(getProps(SoundType.DECORATED_POT)));
+	public static final RegistryObject<Block> CROWN_POTTERY_SHERD = REGISTRY.register("crown_pottery_sherd", () -> new SherdBlock(getProps(SoundType.DECORATED_POT)));
+	public static final RegistryObject<Block> SPADE_POTTERY_SHERD = REGISTRY.register("spade_pottery_sherd", () -> new SherdBlock(getProps(SoundType.DECORATED_POT)));
 	
 	public static final RegistryObject<Block> NETHERITE_UPGRADE = REGISTRY.register("netherite_upgrade", () -> new UpgradeBlock(getProps(SoundType.NETHERRACK)));
 	public static final RegistryObject<Block> GOTHIC_UPGRADE = REGISTRY.register("gothic_upgrade", () -> new UpgradeBlock(getProps(SoundType.SOUL_SOIL)));
+	public static final RegistryObject<Block> PRESERVED_UPGRADE = REGISTRY.register("preserved_upgrade", () -> new UpgradeBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> SILVER_UPGRADE = REGISTRY.register("silver_upgrade", () -> new UpgradeBlock(getProps(SoundType.WOOD)));
 
 	public static final RegistryObject<Block> BOLT_ARMOR_TRIM = REGISTRY.register("bolt_armor_trim", () -> new ArmorTrimBlock(getProps(SoundType.COPPER)));
 	public static final RegistryObject<Block> COAST_ARMOR_TRIM = REGISTRY.register("coast_armor_trim", () -> new ArmorTrimBlock(getProps(SoundType.STONE)));
@@ -64,6 +68,7 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> WILD_ARMOR_TRIM = REGISTRY.register("wild_armor_trim", () -> new ArmorTrimBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> KOBOLD_ARMOR_TRIM = REGISTRY.register("kobold_armor_trim", () -> new ArmorTrimBlock(getProps(SoundType.TUFF)));
 	public static final RegistryObject<Block> NECRO_ARMOR_TRIM = REGISTRY.register("necro_armor_trim", () -> new ArmorTrimBlock(getProps(SoundType.SOUL_SOIL)));
+	public static final RegistryObject<Block> POLAR_ARMOR_TRIM = REGISTRY.register("polarity_armor_trim", () -> new ArmorTrimBlock(getProps(SoundType.STONE)));
 
 	public static final RegistryObject<Block> BRICK = REGISTRY.register("brick", () -> new IngotBlock(getProps(SoundType.DECORATED_POT)));
 	public static final RegistryObject<Block> NETHER_BRICK = REGISTRY.register("nether_brick", () -> new IngotBlock(getProps(SoundType.NETHER_BRICKS)));
@@ -112,6 +117,7 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> MUSIC_FUSION = REGISTRY.register("music_disc_fusion", () -> new MusicBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> MUSIC_COCO = REGISTRY.register("music_disc_coconut", () -> new MusicBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> MUSIC_KOBOLD = REGISTRY.register("music_disc_kobblestone", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_ROT = REGISTRY.register("music_disc_rot", () -> new MusicBlock(getProps(SoundType.STONE)));
 
 	private static BlockBehaviour.Properties getProps(SoundType sound) {
 		return getDefault().mapColor(MapColor.NONE).sound(sound);

@@ -56,9 +56,13 @@ public class DisplayItems {
 	public static final RegistryObject<Item> FOOTPRINT_POTTERY_SHERD = block(DisplayBlocks.FOOTPRINT_POTTERY_SHERD);
 	public static final RegistryObject<Item> GUARDIAN_POTTERY_SHERD = block(DisplayBlocks.GUARDIAN_POTTERY_SHERD);
 	public static final RegistryObject<Item> HERO_POTTERY_SHERD = block(DisplayBlocks.HERO_POTTERY_SHERD);
+	public static final RegistryObject<Item> CROWN_POTTERY_SHERD = block(DisplayBlocks.CROWN_POTTERY_SHERD);
+	public static final RegistryObject<Item> SPADE_POTTERY_SHERD = block(DisplayBlocks.SPADE_POTTERY_SHERD);
 
 	public static final RegistryObject<Item> NETHERITE_UPGRADE = block(DisplayBlocks.NETHERITE_UPGRADE);
 	public static final RegistryObject<Item> GOTHIC_UPGRADE = block(DisplayBlocks.GOTHIC_UPGRADE);
+	public static final RegistryObject<Item> PRESERVED_UPGRADE = block(DisplayBlocks.PRESERVED_UPGRADE);
+	public static final RegistryObject<Item> SILVER_UPGRADE = block(DisplayBlocks.SILVER_UPGRADE);
 	
 	public static final RegistryObject<Item> BOLT_ARMOR_TRIM = block(DisplayBlocks.BOLT_ARMOR_TRIM);
 	public static final RegistryObject<Item> COAST_ARMOR_TRIM = block(DisplayBlocks.COAST_ARMOR_TRIM);
@@ -80,6 +84,7 @@ public class DisplayItems {
 	public static final RegistryObject<Item> WILD_ARMOR_TRIM = block(DisplayBlocks.WILD_ARMOR_TRIM);
 	public static final RegistryObject<Item> KOBOLD_ARMOR_TRIM = block(DisplayBlocks.KOBOLD_ARMOR_TRIM);
 	public static final RegistryObject<Item> NECRO_ARMOR_TRIM = block(DisplayBlocks.NECRO_ARMOR_TRIM);
+	public static final RegistryObject<Item> POLAR_ARMOR_TRIM = block(DisplayBlocks.POLAR_ARMOR_TRIM);
 
 	public static final RegistryObject<Item> BRICK = block(DisplayBlocks.BRICK);
 	public static final RegistryObject<Item> NETHER_BRICK = block(DisplayBlocks.NETHER_BRICK);
@@ -128,6 +133,7 @@ public class DisplayItems {
 	public static final RegistryObject<Item> MUSIC_FUSION = block(DisplayBlocks.MUSIC_FUSION);
 	public static final RegistryObject<Item> MUSIC_COCO = block(DisplayBlocks.MUSIC_COCO);
 	public static final RegistryObject<Item> MUSIC_KOBOLD = block(DisplayBlocks.MUSIC_KOBOLD);
+	public static final RegistryObject<Item> MUSIC_ROT = block(DisplayBlocks.MUSIC_ROT);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
