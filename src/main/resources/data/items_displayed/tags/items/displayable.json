@@ -69,6 +69,10 @@
     "minecraft:wayfinder_armor_trim_smithing_template",
     "minecraft:wild_armor_trim_smithing_template",
     {
+      "id": "alexscaves:polarity_armor_trim_smithing_template",
+      "required": false
+    },
+    {
       "id": "alexscaves:dinosaur_pottery_sherd",
       "required": false
     },
@@ -117,6 +121,14 @@
       "required": false
     },
     {
+      "id": "galosphere:silver_upgrade_smithing_template",
+      "required": false
+    },
+    {
+      "id": "galosphere:preserved_template",
+      "required": false
+    },
+    {
       "id": "galosphere:allurite_shard",
       "required": false
     },
@@ -130,6 +142,18 @@
     },
     {
       "id": "kobolds:music_disc_kobblestone",
+      "required": false
+    },
+    {
+      "id": "spawn:crown_pottery_sherd",
+      "required": false
+    },
+    {
+      "id": "spawn:spade_pottery_sherd",
+      "required": false
+    },
+    {
+      "id": "spawn:music_disc_rot",
       "required": false
     },
     {
