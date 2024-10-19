@@ -101,6 +101,7 @@ public class DisplayItems {
 
 	public static final RegistryObject<Item> FRAGMENTS = block(DisplayBlocks.FRAGMENTS);
 	public static final RegistryObject<Item> FUSIONS = block(DisplayBlocks.FUSIONS);
+	public static final RegistryObject<Item> TASTYS = block(DisplayBlocks.TASTYS);
 	public static final RegistryObject<Item> COAL = block(DisplayBlocks.COAL);
 	public static final RegistryObject<Item> CHARCOAL = block(DisplayBlocks.CHARCOAL);
 	public static final RegistryObject<Item> AMETHYST = block(DisplayBlocks.AMETHYST);
@@ -131,6 +132,8 @@ public class DisplayItems {
 	public static final RegistryObject<Item> MUSIC_WAIT = block(DisplayBlocks.MUSIC_WAIT);
 	public static final RegistryObject<Item> MUSIC_WARD = block(DisplayBlocks.MUSIC_WARD);
 	public static final RegistryObject<Item> MUSIC_FUSION = block(DisplayBlocks.MUSIC_FUSION);
+	public static final RegistryObject<Item> MUSIC_TASTY = block(DisplayBlocks.MUSIC_TASTY);
+	public static final RegistryObject<Item> MUSIC_DRIFT = block(DisplayBlocks.MUSIC_DRIFT);
 	public static final RegistryObject<Item> MUSIC_COCO = block(DisplayBlocks.MUSIC_COCO);
 	public static final RegistryObject<Item> MUSIC_KOBOLD = block(DisplayBlocks.MUSIC_KOBOLD);
 	public static final RegistryObject<Item> MUSIC_ROT = block(DisplayBlocks.MUSIC_ROT);

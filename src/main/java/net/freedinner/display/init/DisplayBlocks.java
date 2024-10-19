@@ -85,6 +85,7 @@ public class DisplayBlocks {
 
 	public static final RegistryObject<Block> FRAGMENTS = REGISTRY.register("disc_fragment_5", () -> new FragmentsBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> FUSIONS = REGISTRY.register("disc_fragment_fusion", () -> new FragmentsBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> TASTYS = REGISTRY.register("disc_fragment_tasty", () -> new FragmentsBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> COAL = REGISTRY.register("coal", () -> new GemBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> CHARCOAL = REGISTRY.register("charcoal", () -> new GemBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> AMETHYST = REGISTRY.register("amethyst_shard", () -> new GemBlock(getProps(SoundType.AMETHYST)));
@@ -115,6 +116,8 @@ public class DisplayBlocks {
 	public static final RegistryObject<Block> MUSIC_WAIT = REGISTRY.register("music_disc_wait", () -> new MusicBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> MUSIC_WARD = REGISTRY.register("music_disc_ward", () -> new MusicBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> MUSIC_FUSION = REGISTRY.register("music_disc_fusion", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_TASTY = REGISTRY.register("music_disc_tasty", () -> new MusicBlock(getProps(SoundType.STONE)));
+	public static final RegistryObject<Block> MUSIC_DRIFT = REGISTRY.register("music_disc_drift", () -> new MusicBlock(getProps(SoundType.WOOL)));
 	public static final RegistryObject<Block> MUSIC_COCO = REGISTRY.register("music_disc_coconut", () -> new MusicBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> MUSIC_KOBOLD = REGISTRY.register("music_disc_kobblestone", () -> new MusicBlock(getProps(SoundType.STONE)));
 	public static final RegistryObject<Block> MUSIC_ROT = REGISTRY.register("music_disc_rot", () -> new MusicBlock(getProps(SoundType.STONE)));
