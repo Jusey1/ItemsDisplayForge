@@ -101,7 +101,19 @@
       "required": false
     },
     {
+      "id": "alexscaves:music_disc_tasty",
+      "required": false
+    },
+    {
       "id": "alexscaves:disc_fragment_fusion",
+      "required": false
+    },
+    {
+      "id": "alexscaves:disc_fragment_tasty",
+      "required": false
+    },
+    {
+      "id": "cloudstorage:music_disc_drift",
       "required": false
     },
     {
